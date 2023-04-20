@@ -2,6 +2,8 @@ import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.*;
+import java.nio.file.FileAlreadyExistsException;
+
 
 public class Main {
     public static void main(String[] args) {
@@ -9,6 +11,7 @@ public class Main {
         myFrame.setSize(400,400);
         MyPanel thePanel = new MyPanel();
 thePanel.setLayout(new BorderLayout());
+int x = 0;
 
 
 thePanel.addMouseListener(new MouseAdapter() {
@@ -70,7 +73,32 @@ thePanel.addMouseListener(new MouseAdapter() {
     thePanel.add(bottomBoard,BorderLayout.SOUTH);
 
 
+topleft.addActionListener(new ActionListener() {
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if (x%2 ==0){
+            topleft.setText("X");
+        }
+        else {
+            topleft.setText("Y");
+        }
+        x++;
+        topleft.setEnabled(false);}
+});
 
+topMid.addActionListener(new ActionListener() {
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if(x%2 ==0){
+            topMid.setText("X");
+        }
+        else {
+            topMid.setText("Y");
+        }
+        x++;
+        topMid.setEnabled(false);
+    }
+});
 
 
 
